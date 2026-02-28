@@ -1,0 +1,36 @@
+{
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.php"
+    },
+    {
+      "source": "/api/call",
+      "destination": "/api/call.php"
+    },
+    {
+      "source": "/api/callback",
+      "destination": "/api/callback.php"
+    },
+    {
+      "source": "/api/login",
+      "destination": "/api/login.php"
+    }
+  ]
+}
